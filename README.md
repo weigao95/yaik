@@ -34,11 +34,7 @@ To use the generated python solver, you need to import [python_run_import.py](./
 
 To use this package, you need to instanll python3 and [sympy](https://github.com/sympy/sympy/wiki/Download-Installation) on your system. Optionally, you might install [sagemath](https://www.sagemath.org/index.html), which contains a faster *groebner reduce* implementation.
 
-Then, you need to express your robot into **Modified** DH format, as illustrated below
-
-<img src="./docs/modified_dh.png" style="zoom: 40%;" />
-
-A documentation regarding that can be found in [here](./docs/modified_dh.md). Several examples can be found in [this file](./fk/robot_models.py). Alternatively, the modified dh model can be converted from chain model in [this file](./fk/chain_models.py), or URDF using a tool in another library.
+Then, you need to express your robot into **Modified** DH format. A documentation regarding that can be found in [here](./docs/modified_dh.md). Several examples can be found in [this file](./fk/robot_models.py). Alternatively, the modified dh model can be converted from chain model in [this file](./fk/chain_models.py), or URDF using a tool in another library.
 
 After that, you can run `ik_solve.py` to generate the solution of your robot in YAML format. This step can take a LOT of time, as we perform offline analysis to find the simplest solution and avoid degeneration. Moreover, this step might fail to find a feasible solution (although the pipeline succeed for all the robots we tested).
 
