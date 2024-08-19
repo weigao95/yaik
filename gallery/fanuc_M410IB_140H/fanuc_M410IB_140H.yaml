@@ -1,0 +1,149 @@
+auxiliary_data:
+  post_transform_sp:
+    cols: 4
+    flatten_data:
+    - '0'
+    - '0'
+    - '1.00000000000000'
+    - '0'
+    - '0'
+    - '1.00000000000000'
+    - '0'
+    - '0'
+    - '-1.00000000000000'
+    - '0'
+    - '0'
+    - '0'
+    - '0'
+    - '0'
+    - '0'
+    - '1.00000000000000'
+    rows: 4
+  pre_transform_sp:
+    cols: 4
+    flatten_data:
+    - '1.00000000000000'
+    - '0'
+    - '0'
+    - '0'
+    - '0'
+    - '1.00000000000000'
+    - '0'
+    - '0'
+    - '0'
+    - '0'
+    - '1.00000000000000'
+    - pre_transform_special_symbol_23
+    - '0'
+    - '0'
+    - '0'
+    - '1.00000000000000'
+    rows: 4
+  unknown_offset:
+  - 0.0
+  - -1.5707963267948966
+  - -1.484307426876522
+  - -0.08648889991837498
+  - 3.141592653589793
+dh_params:
+- a: '0'
+  a_is_Expr: 'True'
+  alpha: '0'
+  alpha_is_Expr: 'True'
+  d: '0'
+  d_is_Expr: 'True'
+  theta: th_0
+  theta_is_Expr: 'True'
+- a: a_0
+  a_is_Expr: 'True'
+  alpha: -pi/2
+  alpha_is_Expr: 'True'
+  d: '0'
+  d_is_Expr: 'True'
+  theta: th_1
+  theta_is_Expr: 'True'
+- a: a_1
+  a_is_Expr: 'True'
+  alpha: -pi
+  alpha_is_Expr: 'True'
+  d: '0'
+  d_is_Expr: 'True'
+  theta: th_2
+  theta_is_Expr: 'True'
+- a: a_2
+  a_is_Expr: 'True'
+  alpha: '0'
+  alpha_is_Expr: 'True'
+  d: '0'
+  d_is_Expr: 'True'
+  theta: th_3
+  theta_is_Expr: 'True'
+- a: '0'
+  a_is_Expr: 'True'
+  alpha: -pi/2
+  alpha_is_Expr: 'True'
+  d: d_3
+  d_is_Expr: 'True'
+  theta: th_4
+  theta_is_Expr: 'True'
+name: fanuc_M410IB_140H
+parameters_bound: {}
+parameters_value:
+  a_0: 0.24
+  a_1: 1.16
+  a_2: 1.7364907140552177
+  d_3: -0.215
+  pre_transform_special_symbol_23: 0.7200000000000002
+symbolic_parameters:
+- a_2
+- pre_transform_special_symbol_23
+- a_1
+- d_3
+- a_0
+unknown_as_parameter_more_dof: []
+unknowns:
+- degenerate_check_value:
+  - '0'
+  - pi/2
+  - pi
+  - -pi/2
+  lb: -3.141592653589793
+  symbol: th_0
+  ub: 3.141592653589793
+  unknown_type: Revolute
+- degenerate_check_value:
+  - '0'
+  - pi/2
+  - pi
+  - -pi/2
+  lb: -3.141592653589793
+  symbol: th_1
+  ub: 3.141592653589793
+  unknown_type: Revolute
+- degenerate_check_value:
+  - '0'
+  - pi/2
+  - pi
+  - -pi/2
+  lb: -3.141592653589793
+  symbol: th_2
+  ub: 3.141592653589793
+  unknown_type: Revolute
+- degenerate_check_value:
+  - '0'
+  - pi/2
+  - pi
+  - -pi/2
+  lb: -3.141592653589793
+  symbol: th_3
+  ub: 3.141592653589793
+  unknown_type: Revolute
+- degenerate_check_value:
+  - '0'
+  - pi/2
+  - pi
+  - -pi/2
+  lb: -3.141592653589793
+  symbol: th_4
+  ub: 3.141592653589793
+  unknown_type: Revolute

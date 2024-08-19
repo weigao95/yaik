@@ -1,0 +1,657 @@
+robot:
+  auxiliary_data:
+    post_transform_sp:
+      cols: 4
+      flatten_data:
+      - post_transform_sqrt2_over2
+      - post_transform_sqrt2_over2
+      - '0'
+      - '0'
+      - -post_transform_sqrt2_over2
+      - post_transform_sqrt2_over2
+      - '0'
+      - '0'
+      - '0'
+      - '0'
+      - '1'
+      - post_transform_d5
+      - '0'
+      - '0'
+      - '0'
+      - '1'
+      rows: 4
+    pre_transform_sp:
+      cols: 4
+      flatten_data:
+      - '1'
+      - '0'
+      - '0'
+      - '0'
+      - '0'
+      - '1'
+      - '0'
+      - '0'
+      - '0'
+      - '0'
+      - '1'
+      - pre_transform_d4
+      - '0'
+      - '0'
+      - '0'
+      - '1'
+      rows: 4
+    unknown_offset:
+    - 0.0
+    - 3.141592653589793
+    - 3.141592653589793
+    - 3.141592653589793
+    - 0.0
+    - 3.141592653589793
+    - 0.0
+  dh_params:
+  - a: 0.0
+    alpha: 0.0
+    d: 0.0
+    theta: th_0
+    theta_is_Expr: 'True'
+  - a: 0.0
+    alpha: -pi/2
+    alpha_is_Expr: 'True'
+    d: 0.0
+    theta: th_1
+    theta_is_Expr: 'True'
+  - a: 0.0
+    alpha: -pi/2
+    alpha_is_Expr: 'True'
+    d: d_2
+    d_is_Expr: 'True'
+    theta: th_2
+    theta_is_Expr: 'True'
+  - a: a_3
+    a_is_Expr: 'True'
+    alpha: pi/2
+    alpha_is_Expr: 'True'
+    d: 0.0
+    theta: th_3
+    theta_is_Expr: 'True'
+  - a: a_3
+    a_is_Expr: 'True'
+    alpha: pi/2
+    alpha_is_Expr: 'True'
+    d: d_4
+    d_is_Expr: 'True'
+    theta: th_4
+    theta_is_Expr: 'True'
+  - a: 0.0
+    alpha: -pi/2
+    alpha_is_Expr: 'True'
+    d: 0.0
+    theta: th_5
+    theta_is_Expr: 'True'
+  - a: a_5
+    a_is_Expr: 'True'
+    alpha: pi/2
+    alpha_is_Expr: 'True'
+    d: 0.0
+    theta: th_6
+    theta_is_Expr: 'True'
+  name: franka_panda
+  parameters_bound: {}
+  parameters_value:
+    a_3: 0.00825
+    a_5: 0.088
+    d_2: 0.316
+    d_4: 0.384
+    post_transform_d5: 0.107
+    post_transform_sqrt2_over2: 0.707107
+    pre_transform_d4: 0.333
+  symbolic_parameters:
+  - a_3
+  - d_2
+  - a_5
+  - post_transform_sqrt2_over2
+  - pre_transform_d4
+  - post_transform_d5
+  - d_4
+  unknown_as_parameter_more_dof:
+  - th_3
+  unknowns:
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_0
+    ub: 3.141592653589793
+    unknown_type: Revolute
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_1
+    ub: 3.141592653589793
+    unknown_type: Revolute
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_2
+    ub: 3.141592653589793
+    unknown_type: Revolute
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_3
+    ub: 3.141592653589793
+    unknown_type: Revolute
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_4
+    ub: 3.141592653589793
+    unknown_type: Revolute
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_5
+    ub: 3.141592653589793
+    unknown_type: Revolute
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_6
+    ub: 3.141592653589793
+    unknown_type: Revolute
+tree_nodes:
+- children_index_list:
+  - 1
+  - -1
+  class_type: EquationAllZeroDispatcherNode
+  degenerate_checker: (2*Abs(a_5*inv_Px) <= 1.0e-6) & (2*Abs(a_5*inv_Py) <= 1.0e-6)
+    & (Abs(2*a_3**2*cos(th_3) + 2*a_3**2 + 2*a_3*d_2*sin(th_3) + 2*a_3*d_4*sin(th_3)
+    - a_5**2 + d_2**2 - 2*d_2*d_4*cos(th_3) + d_4**2 - inv_Px**2 - inv_Py**2 - inv_Pz**2)
+    <= 1.0e-6)
+  degenerate_record:
+    equations:
+    - 2*a_5*inv_Py
+    - -2*a_5*inv_Px
+    - -2*a_3**2*cos(th_3) - 2*a_3**2 - 2*a_3*d_2*sin(th_3) - 2*a_3*d_4*sin(th_3) +
+      a_5**2 - d_2**2 + 2*d_2*d_4*cos(th_3) - d_4**2 + inv_Px**2 + inv_Py**2 + inv_Pz**2
+    numerical_result: NumericalAlwaysNonDegenerate
+    type: DegenerateIfAllEquationsZero
+    variable_value_map: {}
+  flatten_idx_in_tree: 0
+  node_type: DispatcherNode
+  parent_idx: -1
+- children_index_list:
+  - 2
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 1
+  node_type: SolutionNode
+  parent_idx: 0
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - (2*Abs(a_5*inv_Px) >= zero_tolerance) | (2*Abs(a_5*inv_Py) >= zero_tolerance)
+        | (Abs(2*a_3**2*cos(th_3) + 2*a_3**2 + 2*a_3*d_2*sin(th_3) + 2*a_3*d_4*sin(th_3)
+        - a_5**2 + d_2**2 - 2*d_2*d_4*cos(th_3) + d_4**2 - inv_Px**2 - inv_Py**2 -
+        inv_Pz**2) >= zero_tolerance)
+      - (2*Abs(a_5*inv_Px) >= zero_tolerance) | (2*Abs(a_5*inv_Py) >= zero_tolerance)
+        | (Abs(2*a_3**2*cos(th_3) + 2*a_3**2 + 2*a_3*d_2*sin(th_3) + 2*a_3*d_4*sin(th_3)
+        - a_5**2 + d_2**2 - 2*d_2*d_4*cos(th_3) + d_4**2 - inv_Px**2 - inv_Py**2 -
+        inv_Pz**2) >= zero_tolerance)
+      explicit_solutions:
+      - atan2(2*a_5*inv_Py, -2*a_5*inv_Px) + atan2(sqrt(4*a_5**2*inv_Px**2 + 4*a_5**2*inv_Py**2
+        - (-2*a_3**2*cos(th_3) - 2*a_3**2 - 2*a_3*d_2*sin(th_3) - 2*a_3*d_4*sin(th_3)
+        + a_5**2 - d_2**2 + 2*d_2*d_4*cos(th_3) - d_4**2 + inv_Px**2 + inv_Py**2 +
+        inv_Pz**2)**2), -2*a_3**2*cos(th_3) - 2*a_3**2 - 2*a_3*d_2*sin(th_3) - 2*a_3*d_4*sin(th_3)
+        + a_5**2 - d_2**2 + 2*d_2*d_4*cos(th_3) - d_4**2 + inv_Px**2 + inv_Py**2 +
+        inv_Pz**2)
+      - atan2(2*a_5*inv_Py, -2*a_5*inv_Px) + atan2(-sqrt(4*a_5**2*inv_Px**2 + 4*a_5**2*inv_Py**2
+        - (-2*a_3**2*cos(th_3) - 2*a_3**2 - 2*a_3*d_2*sin(th_3) - 2*a_3*d_4*sin(th_3)
+        + a_5**2 - d_2**2 + 2*d_2*d_4*cos(th_3) - d_4**2 + inv_Px**2 + inv_Py**2 +
+        inv_Pz**2)**2), -2*a_3**2*cos(th_3) - 2*a_3**2 - 2*a_3*d_2*sin(th_3) - 2*a_3*d_4*sin(th_3)
+        + a_5**2 - d_2**2 + 2*d_2*d_4*cos(th_3) - d_4**2 + inv_Px**2 + inv_Py**2 +
+        inv_Pz**2)
+      meta:
+        degenerate_record:
+          equations:
+          - 2*a_5*inv_Py
+          - -2*a_5*inv_Px
+          - -2*a_3**2*cos(th_3) - 2*a_3**2 - 2*a_3*d_2*sin(th_3) - 2*a_3*d_4*sin(th_3)
+            + a_5**2 - d_2**2 + 2*d_2*d_4*cos(th_3) - d_4**2 + inv_Px**2 + inv_Py**2
+            + inv_Pz**2
+          numerical_result: NumericalAlwaysNonDegenerate
+          type: DegenerateIfAllEquationsZero
+          variable_value_map: {}
+        solution_method: SinAndCos
+        solve_from_equations:
+        - lhs: '0'
+          rhs: -2*a_3**2*cos(th_3) - 2*a_3**2 - 2*a_3*d_2*sin(th_3) - 2*a_3*d_4*sin(th_3)
+            + a_5**2 - 2*a_5*inv_Px*cos(th_6) + 2*a_5*inv_Py*sin(th_6) - d_2**2 +
+            2*d_2*d_4*cos(th_3) - d_4**2 + inv_Px**2 + inv_Py**2 + inv_Pz**2
+          type: Default
+        solved_variable: th_6
+    type: explicit
+- branch_conditions:
+  - Abs(th_3 - pi) <= 1.0e-6
+  - Abs(th_3 - 3.08938932227154 + pi) <= 1.0e-6
+  branch_variable_values:
+  - th_3: pi
+  - th_3: 3.08938932227154 - pi
+  children_index_list:
+  - 3
+  - 12
+  - 13
+  class_type: SolvedVariableDispatcherNode
+  degenerate_record:
+    equations: []
+    numerical_result: NotAnalyzedYet
+    type: DegenerateOnVariableValue
+    variable_value_map:
+      th_3:
+      - pi
+      - 3.08938932227154 - pi
+  flatten_idx_in_tree: 2
+  node_type: DispatcherNode
+  parent_idx: 1
+- children_index_list:
+  - 4
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 3
+  node_type: SolutionNode
+  parent_idx: 2
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - Abs((inv_Px*sin(th_6) + inv_Py*cos(th_6))/(a_3*cos(th_3) + a_3 + d_2*sin(th_3)))
+        <= 1
+      - Abs((inv_Px*sin(th_6) + inv_Py*cos(th_6))/(a_3*cos(th_3) + a_3 + d_2*sin(th_3)))
+        <= 1
+      explicit_solutions:
+      - asin((inv_Px*sin(th_6) + inv_Py*cos(th_6))/(a_3*cos(th_3) + a_3 + d_2*sin(th_3)))
+      - pi - asin((inv_Px*sin(th_6) + inv_Py*cos(th_6))/(a_3*cos(th_3) + a_3 + d_2*sin(th_3)))
+      meta:
+        degenerate_record:
+          equations: []
+          numerical_result: NotAnalyzedYet
+          type: DegenerateOnVariableValue
+          variable_value_map:
+            th_3:
+            - pi
+            - 3.08938932227154 - pi
+        solution_method: ArcSin
+        solve_from_equations:
+        - lhs: '0'
+          rhs: -inv_Px*sin(th_6) - inv_Py*cos(th_6) + (a_3*cos(th_3) + a_3 + d_2*sin(th_3))*sin(th_4)
+          type: Default
+        solved_variable: th_4
+    type: explicit
+- children_index_list:
+  - 5
+  - -1
+  class_type: EquationAllZeroDispatcherNode
+  degenerate_checker: (Abs(inv_Pz) <= 1.0e-6) & (Abs(a_5 + inv_Px*cos(th_6) - inv_Py*sin(th_6))
+    <= 1.0e-6)
+  degenerate_record:
+    equations:
+    - -inv_Pz
+    - -a_5 - inv_Px*cos(th_6) + inv_Py*sin(th_6)
+    numerical_result: NumericalAlwaysNonDegenerate
+    type: DegenerateIfAllEquationsZero
+    variable_value_map: {}
+  flatten_idx_in_tree: 4
+  node_type: DispatcherNode
+  parent_idx: 3
+- children_index_list:
+  - 6
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 5
+  node_type: SolutionNode
+  parent_idx: 4
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - (Abs(inv_Pz) >= 1.0e-6) | (Abs(a_5 + inv_Px*cos(th_6) - inv_Py*sin(th_6))
+        >= 1.0e-6)
+      explicit_solutions:
+      - atan2(-inv_Pz*(a_3*cos(th_3) + a_3 + d_2*sin(th_3))*cos(th_4) - (-a_5 - inv_Px*cos(th_6)
+        + inv_Py*sin(th_6))*(a_3*sin(th_3) - d_2*cos(th_3) + d_4), -inv_Pz*(a_3*sin(th_3)
+        - d_2*cos(th_3) + d_4) + (-a_5 - inv_Px*cos(th_6) + inv_Py*sin(th_6))*(a_3*cos(th_3)
+        + a_3 + d_2*sin(th_3))*cos(th_4))
+      meta:
+        degenerate_record:
+          equations:
+          - -inv_Pz
+          - -a_5 - inv_Px*cos(th_6) + inv_Py*sin(th_6)
+          numerical_result: NumericalAlwaysNonDegenerate
+          type: DegenerateIfAllEquationsZero
+          variable_value_map: {}
+        solution_method: LinearSinCosType_1
+        solve_from_equations:
+        - lhs: '0'
+          rhs: -a_3*cos(th_3)*cos(th_4) - a_3*cos(th_4) - d_2*sin(th_3)*cos(th_4)
+            - inv_Pz*sin(th_5) + (-a_5 - inv_Px*cos(th_6) + inv_Py*sin(th_6))*cos(th_5)
+          type: Default
+        - lhs: '0'
+          rhs: -a_3*sin(th_3) + d_2*cos(th_3) - d_4 - inv_Pz*cos(th_5) + (a_5 + inv_Px*cos(th_6)
+            - inv_Py*sin(th_6))*sin(th_5)
+          type: Default
+        solved_variable: th_5
+    type: explicit
+- children_index_list:
+  - 7
+  class_type: NoBranchDispatcherNode
+  flatten_idx_in_tree: 6
+  node_type: DispatcherNode
+  parent_idx: 5
+- children_index_list:
+  - 8
+  class_type: LinearSinCosType_2_SolverNode
+  flatten_idx_in_tree: 7
+  node_type: SolutionNode
+  parent_idx: 6
+  solution:
+    linear_type2_solution:
+      A:
+        cols: 4
+        flatten_data:
+        - r_11
+        - -r_21
+        - sin(th_3)*sin(th_5)*cos(th_6) + sin(th_4)*sin(th_6)*cos(th_3) - cos(th_3)*cos(th_4)*cos(th_5)*cos(th_6)
+        - sin(th_4)*cos(th_5)*cos(th_6) + sin(th_6)*cos(th_4)
+        - r_12
+        - -r_22
+        - -sin(th_3)*sin(th_5)*sin(th_6) + sin(th_4)*cos(th_3)*cos(th_6) + sin(th_6)*cos(th_3)*cos(th_4)*cos(th_5)
+        - -sin(th_4)*sin(th_6)*cos(th_5) + cos(th_4)*cos(th_6)
+        - r_13
+        - -r_23
+        - -sin(th_3)*cos(th_5) - sin(th_5)*cos(th_3)*cos(th_4)
+        - sin(th_4)*sin(th_5)
+        - Px
+        - -Py
+        - -a_3*cos(th_3) - a_3 + a_5*sin(th_3)*sin(th_5) - a_5*cos(th_3)*cos(th_4)*cos(th_5)
+          - d_4*sin(th_3)
+        - a_5*sin(th_4)*cos(th_5)
+        - -r_11
+        - r_21
+        - -sin(th_3)*sin(th_5)*cos(th_6) - sin(th_4)*sin(th_6)*cos(th_3) + cos(th_3)*cos(th_4)*cos(th_5)*cos(th_6)
+        - -sin(th_4)*cos(th_5)*cos(th_6) - sin(th_6)*cos(th_4)
+        - -r_12
+        - r_22
+        - sin(th_3)*sin(th_5)*sin(th_6) - sin(th_4)*cos(th_3)*cos(th_6) - sin(th_6)*cos(th_3)*cos(th_4)*cos(th_5)
+        - sin(th_4)*sin(th_6)*cos(th_5) - cos(th_4)*cos(th_6)
+        - -r_13
+        - r_23
+        - sin(th_3)*cos(th_5) + sin(th_5)*cos(th_3)*cos(th_4)
+        - -sin(th_4)*sin(th_5)
+        - -Px
+        - Py
+        - a_3*cos(th_3) + a_3 - a_5*sin(th_3)*sin(th_5) + a_5*cos(th_3)*cos(th_4)*cos(th_5)
+          + d_4*sin(th_3)
+        - -a_5*sin(th_4)*cos(th_5)
+        rows: 8
+      meta:
+        degenerate_record:
+          equations: []
+          numerical_result: NotAnalyzedYet
+          type: CannotAnalyse
+          variable_value_map: {}
+        solution_method: General6DoFNumericalReduce
+        solved_variable: th_2
+      rows_to_try:
+      - !!python/tuple
+        - 0
+        - 1
+        - 2
+      - !!python/tuple
+        - 0
+        - 1
+        - 3
+      - !!python/tuple
+        - 0
+        - 1
+        - 6
+      - !!python/tuple
+        - 0
+        - 1
+        - 7
+      - !!python/tuple
+        - 0
+        - 2
+        - 3
+    type: LinearSinCosType_2
+- children_index_list:
+  - 9
+  - -1
+  class_type: EquationAllZeroDispatcherNode
+  degenerate_checker: (Abs(r_13) <= 1.0e-6) & (Abs(r_23) <= 1.0e-6) & (Abs(sin(th_2)*sin(th_3)*cos(th_5)
+    + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4) - sin(th_4)*sin(th_5)*cos(th_2)) <=
+    1.0e-6)
+  degenerate_record:
+    equations:
+    - r_13
+    - -r_23
+    - sin(th_2)*sin(th_3)*cos(th_5) + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4) - sin(th_4)*sin(th_5)*cos(th_2)
+    numerical_result: NumericalAlwaysNonDegenerate
+    type: DegenerateIfAllEquationsZero
+    variable_value_map: {}
+  flatten_idx_in_tree: 8
+  node_type: DispatcherNode
+  parent_idx: 7
+- children_index_list:
+  - 10
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 9
+  node_type: SolutionNode
+  parent_idx: 8
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - (Abs(r_13) >= zero_tolerance) | (Abs(r_23) >= zero_tolerance) | (Abs(sin(th_2)*sin(th_3)*cos(th_5)
+        + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4) - sin(th_4)*sin(th_5)*cos(th_2))
+        >= zero_tolerance)
+      - (Abs(r_13) >= zero_tolerance) | (Abs(r_23) >= zero_tolerance) | (Abs(sin(th_2)*sin(th_3)*cos(th_5)
+        + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4) - sin(th_4)*sin(th_5)*cos(th_2))
+        >= zero_tolerance)
+      explicit_solutions:
+      - atan2(r_13, -r_23) + atan2(sqrt(r_13**2 + r_23**2 - (sin(th_2)*sin(th_3)*cos(th_5)
+        + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4) - sin(th_4)*sin(th_5)*cos(th_2))**2),
+        sin(th_2)*sin(th_3)*cos(th_5) + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4) -
+        sin(th_4)*sin(th_5)*cos(th_2))
+      - atan2(r_13, -r_23) + atan2(-sqrt(r_13**2 + r_23**2 - (sin(th_2)*sin(th_3)*cos(th_5)
+        + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4) - sin(th_4)*sin(th_5)*cos(th_2))**2),
+        sin(th_2)*sin(th_3)*cos(th_5) + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4) -
+        sin(th_4)*sin(th_5)*cos(th_2))
+      meta:
+        degenerate_record:
+          equations:
+          - r_13
+          - -r_23
+          - sin(th_2)*sin(th_3)*cos(th_5) + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4)
+            - sin(th_4)*sin(th_5)*cos(th_2)
+          numerical_result: NumericalAlwaysNonDegenerate
+          type: DegenerateIfAllEquationsZero
+          variable_value_map: {}
+        solution_method: SinAndCos
+        solve_from_equations:
+        - lhs: '0'
+          rhs: r_13*sin(th_0) - r_23*cos(th_0) + sin(th_2)*sin(th_3)*cos(th_5) + sin(th_2)*sin(th_5)*cos(th_3)*cos(th_4)
+            - sin(th_4)*sin(th_5)*cos(th_2)
+          type: Default
+        solved_variable: th_0
+    type: explicit
+- children_index_list:
+  - 11
+  - -1
+  class_type: EquationAllZeroDispatcherNode
+  degenerate_checker: (Abs(Pz) <= 1.0e-6) & (Abs(Px*cos(th_0) + Py*sin(th_0)) <= 1.0e-6)
+  degenerate_record:
+    equations:
+    - Pz
+    - -Px*cos(th_0) - Py*sin(th_0)
+    numerical_result: NumericalAlwaysNonDegenerate
+    type: DegenerateIfAllEquationsZero
+    variable_value_map: {}
+  flatten_idx_in_tree: 10
+  node_type: DispatcherNode
+  parent_idx: 9
+- children_index_list:
+  - -1
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 11
+  node_type: SolutionNode
+  parent_idx: 10
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - (Abs(Pz) >= 1.0e-6) | (Abs(Px*cos(th_0) + Py*sin(th_0)) >= 1.0e-6)
+      explicit_solutions:
+      - atan2(Pz*(-a_3*cos(th_2)*cos(th_3) - a_3*cos(th_2) - a_5*sin(th_2)*sin(th_4)*cos(th_5)
+        + a_5*sin(th_3)*sin(th_5)*cos(th_2) - a_5*cos(th_2)*cos(th_3)*cos(th_4)*cos(th_5)
+        - d_4*sin(th_3)*cos(th_2)) - (-Px*cos(th_0) - Py*sin(th_0))*(-a_3*sin(th_3)
+        - a_5*sin(th_3)*cos(th_4)*cos(th_5) - a_5*sin(th_5)*cos(th_3) - d_2 + d_4*cos(th_3)),
+        Pz*(-a_3*sin(th_3) - a_5*sin(th_3)*cos(th_4)*cos(th_5) - a_5*sin(th_5)*cos(th_3)
+        - d_2 + d_4*cos(th_3)) + (-Px*cos(th_0) - Py*sin(th_0))*(-a_3*cos(th_2)*cos(th_3)
+        - a_3*cos(th_2) - a_5*sin(th_2)*sin(th_4)*cos(th_5) + a_5*sin(th_3)*sin(th_5)*cos(th_2)
+        - a_5*cos(th_2)*cos(th_3)*cos(th_4)*cos(th_5) - d_4*sin(th_3)*cos(th_2)))
+      meta:
+        degenerate_record:
+          equations:
+          - Pz
+          - -Px*cos(th_0) - Py*sin(th_0)
+          numerical_result: NumericalAlwaysNonDegenerate
+          type: DegenerateIfAllEquationsZero
+          variable_value_map: {}
+        solution_method: LinearSinCosType_1
+        solve_from_equations:
+        - lhs: '0'
+          rhs: Pz*sin(th_1) + a_3*cos(th_2)*cos(th_3) + a_3*cos(th_2) + a_5*sin(th_2)*sin(th_4)*cos(th_5)
+            - a_5*sin(th_3)*sin(th_5)*cos(th_2) + a_5*cos(th_2)*cos(th_3)*cos(th_4)*cos(th_5)
+            + d_4*sin(th_3)*cos(th_2) + (-Px*cos(th_0) - Py*sin(th_0))*cos(th_1)
+          type: Default
+        - lhs: '0'
+          rhs: Pz*cos(th_1) + a_3*sin(th_3) + a_5*sin(th_3)*cos(th_4)*cos(th_5) +
+            a_5*sin(th_5)*cos(th_3) + d_2 - d_4*cos(th_3) + (Px*cos(th_0) + Py*sin(th_0))*sin(th_1)
+          type: Default
+        solved_variable: th_1
+    type: explicit
+- children_index_list:
+  - -1
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 12
+  node_type: SolutionNode
+  parent_idx: 2
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - (Abs(inv_Pz) >= zero_tolerance) | (Abs(d_2 + d_4) >= zero_tolerance) | (Abs(a_5
+        + inv_Px*cos(th_6) - inv_Py*sin(th_6)) >= zero_tolerance)
+      explicit_solutions:
+      - atan2((a_5 + inv_Px*cos(th_6) - inv_Py*sin(th_6))/(d_2 + d_4), inv_Pz/(-d_2
+        - d_4))
+      meta:
+        degenerate_record:
+          equations: []
+          numerical_result: NotAnalyzedYet
+          type: AlwaysNonDegenerate
+          variable_value_map: {}
+        solution_method: Tangent
+        solve_from_equations:
+        - lhs: '0'
+          rhs: -a_5 - inv_Px*cos(th_6) + inv_Py*sin(th_6) + (d_2 + d_4)*sin(th_5)
+          type: Default
+        - lhs: '0'
+          rhs: -inv_Pz + (-d_2 - d_4)*cos(th_5)
+          type: Default
+        solved_variable: th_5
+    type: explicit
+- children_index_list:
+  - 14
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 13
+  node_type: SolutionNode
+  parent_idx: 2
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - Abs((inv_Px*sin(th_6) + inv_Py*cos(th_6))/(1.99863771551522*a_3 - 0.0521796239019005*d_2))
+        <= 1
+      - Abs((inv_Px*sin(th_6) + inv_Py*cos(th_6))/(1.99863771551522*a_3 - 0.0521796239019005*d_2))
+        <= 1
+      explicit_solutions:
+      - asin((inv_Px*sin(th_6) + inv_Py*cos(th_6))/(1.99863771551522*a_3 - 0.0521796239019005*d_2))
+      - pi - asin((inv_Px*sin(th_6) + inv_Py*cos(th_6))/(1.99863771551522*a_3 - 0.0521796239019005*d_2))
+      meta:
+        degenerate_record:
+          equations: []
+          numerical_result: NotAnalyzedYet
+          type: AlwaysNonDegenerate
+          variable_value_map: {}
+        solution_method: ArcSin
+        solve_from_equations:
+        - lhs: '0'
+          rhs: -inv_Px*sin(th_6) - inv_Py*cos(th_6) + (1.99863771551522*a_3 - 0.0521796239019005*d_2)*sin(th_4)
+          type: Default
+        solved_variable: th_4
+    type: explicit
+- children_index_list:
+  - 15
+  class_type: NoBranchDispatcherNode
+  flatten_idx_in_tree: 14
+  node_type: DispatcherNode
+  parent_idx: 13
+- children_index_list:
+  - -1
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 15
+  node_type: SolutionNode
+  parent_idx: 14
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - (Abs(0.0521796239019005*a_3 + 0.998637715515219*d_2 - 1.0*d_4) >= 1.0e-6)
+        | (Abs(1.99863771551522*a_3*cos(th_4) - 0.0521796239019005*d_2*cos(th_4))
+        >= 1.0e-6)
+      explicit_solutions:
+      - atan2(inv_Pz*(-1.99863771551522*a_3*cos(th_4) + 0.0521796239019005*d_2*cos(th_4))
+        - (0.0521796239019005*a_3 + 0.998637715515219*d_2 - 1.0*d_4)*(1.0*a_5 + 1.0*inv_Px*cos(th_6)
+        - 1.0*inv_Py*sin(th_6)), inv_Pz*(0.0521796239019005*a_3 + 0.998637715515219*d_2
+        - 1.0*d_4) + (-1.99863771551522*a_3*cos(th_4) + 0.0521796239019005*d_2*cos(th_4))*(1.0*a_5
+        + 1.0*inv_Px*cos(th_6) - 1.0*inv_Py*sin(th_6)))
+      meta:
+        degenerate_record:
+          equations: []
+          numerical_result: NotAnalyzedYet
+          type: AlwaysNonDegenerate
+          variable_value_map: {}
+        solution_method: LinearSinCosType_1
+        solve_from_equations:
+        - lhs: '0'
+          rhs: -inv_Pz + (-1.99863771551522*a_3*cos(th_4) + 0.0521796239019005*d_2*cos(th_4))*sin(th_5)
+            + (0.0521796239019005*a_3 + 0.998637715515219*d_2 - 1.0*d_4)*cos(th_5)
+          type: Default
+        - lhs: '0'
+          rhs: -1.0*a_5 - inv_Px*cos(th_6) + inv_Py*sin(th_6) + (-1.99863771551522*a_3*cos(th_4)
+            + 0.0521796239019005*d_2*cos(th_4))*cos(th_5) + (-0.0521796239019005*a_3
+            - 0.998637715515219*d_2 + 1.0*d_4)*sin(th_5)
+          type: Default
+        solved_variable: th_5
+    type: explicit

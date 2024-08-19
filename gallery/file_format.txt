@@ -1,0 +1,18 @@
+**Directory Format for Generated Robot Inverse Kinematic Solvers**
+
+gallery/
+    puma/
+        puma_ik.yaml
+        puma_ik_generated.cpp
+        puma_ik_generated.py
+    my_new_robot/
+        my_new_robot_ik.yaml
+        my_new_robot_ik_generated.cpp
+        my_new_robot_ik_generated.py
+    {robot_name}/
+        {robot_name}_ik.yaml
+        {robot_name}_ik_generated.cpp
+        {robot_name}_ik_generated.py
+
+
+A special directory named test_data is not robot inverse kinematic solver, and does not have this structure.

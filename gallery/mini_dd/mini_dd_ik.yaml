@@ -1,0 +1,272 @@
+robot:
+  dh_params:
+  - a: 0.0
+    alpha: 0.0
+    d: d_0
+    d_is_Expr: 'True'
+    theta: 0.0
+  - a: 0.0
+    alpha: -pi/2
+    alpha_is_Expr: 'True'
+    d: 0.0
+    theta: th_1
+    theta_is_Expr: 'True'
+  - a: l_3
+    a_is_Expr: 'True'
+    alpha: -pi/2
+    alpha_is_Expr: 'True'
+    d: 0.0
+    theta: th_2
+    theta_is_Expr: 'True'
+  - a: 0.0
+    alpha: -pi/2
+    alpha_is_Expr: 'True'
+    d: l_4
+    d_is_Expr: 'True'
+    theta: th_3
+    theta_is_Expr: 'True'
+  - a: 0.0
+    alpha: -pi/2
+    alpha_is_Expr: 'True'
+    d: 0.0
+    theta: th_4
+    theta_is_Expr: 'True'
+  name: mini_dd
+  parameters_bound: {}
+  parameters_value:
+    l_3: 5.0
+    l_4: 2.0
+  symbolic_parameters:
+  - l_4
+  - l_3
+  unknown_as_parameter_more_dof: []
+  unknowns:
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -1.0
+    symbol: d_0
+    ub: 1.0
+    unknown_type: Translational
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_1
+    ub: 3.141592653589793
+    unknown_type: Revolute
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_2
+    ub: 3.141592653589793
+    unknown_type: Revolute
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_3
+    ub: 3.141592653589793
+    unknown_type: Revolute
+  - degenerate_check_value:
+    - '0'
+    - pi/2
+    - pi
+    - -pi/2
+    lb: -3.141592653589793
+    symbol: th_4
+    ub: 3.141592653589793
+    unknown_type: Revolute
+tree_nodes:
+- children_index_list:
+  - 1
+  class_type: NoBranchDispatcherNode
+  flatten_idx_in_tree: 0
+  node_type: DispatcherNode
+  parent_idx: -1
+- children_index_list:
+  - 2
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 1
+  node_type: SolutionNode
+  parent_idx: 0
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - Abs(Py/l_4) <= 1
+      - Abs(Py/l_4) <= 1
+      explicit_solutions:
+      - acos(-Py/l_4)
+      - -acos(-Py/l_4)
+      meta:
+        degenerate_record:
+          equations: []
+          numerical_result: NotAnalyzedYet
+          type: AlwaysNonDegenerate
+          variable_value_map: {}
+        solution_method: ArcCos
+        solve_from_equations:
+        - lhs: '0'
+          rhs: -Py - l_4*cos(th_2)
+          type: Default
+        solved_variable: th_2
+    type: explicit
+- children_index_list:
+  - 3
+  - -1
+  class_type: EquationAllZeroDispatcherNode
+  degenerate_checker: Abs(l_3 - l_4*sin(th_2)) <= 1.0e-6
+  degenerate_record:
+    equations:
+    - l_3 - l_4*sin(th_2)
+    numerical_result: NumericalAlwaysNonDegenerate
+    type: DegenerateIfAllEquationsZero
+    variable_value_map: {}
+  flatten_idx_in_tree: 2
+  node_type: DispatcherNode
+  parent_idx: 1
+- children_index_list:
+  - 4
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 3
+  node_type: SolutionNode
+  parent_idx: 2
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - Abs(Px/(l_3 - l_4*sin(th_2))) <= 1
+      - Abs(Px/(l_3 - l_4*sin(th_2))) <= 1
+      explicit_solutions:
+      - acos(Px/(l_3 - l_4*sin(th_2)))
+      - -acos(Px/(l_3 - l_4*sin(th_2)))
+      meta:
+        degenerate_record:
+          equations:
+          - l_3 - l_4*sin(th_2)
+          numerical_result: NumericalAlwaysNonDegenerate
+          type: DegenerateIfAllEquationsZero
+          variable_value_map: {}
+        solution_method: ArcCos
+        solve_from_equations:
+        - lhs: '0'
+          rhs: -Px + (l_3 - l_4*sin(th_2))*cos(th_1)
+          type: Default
+        solved_variable: th_1
+    type: explicit
+- children_index_list:
+  - 5
+  class_type: NoBranchDispatcherNode
+  flatten_idx_in_tree: 4
+  node_type: DispatcherNode
+  parent_idx: 3
+- children_index_list:
+  - 6
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 5
+  node_type: SolutionNode
+  parent_idx: 4
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - 1 >= zero_tolerance
+      explicit_solutions:
+      - Pz + l_3*sin(th_1) - l_4*sin(th_1)*sin(th_2)
+      meta:
+        degenerate_record:
+          equations: []
+          numerical_result: NotAnalyzedYet
+          type: AlwaysNonDegenerate
+          variable_value_map: {}
+        solution_method: OneVariableAlgebra
+        solve_from_equations:
+        - lhs: '0'
+          rhs: Pz - d_0 + l_3*sin(th_1) - l_4*sin(th_1)*sin(th_2)
+          type: Translation
+        solved_variable: d_0
+    type: explicit
+- children_index_list:
+  - 7
+  class_type: NoBranchDispatcherNode
+  flatten_idx_in_tree: 6
+  node_type: DispatcherNode
+  parent_idx: 5
+- children_index_list:
+  - 8
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 7
+  node_type: SolutionNode
+  parent_idx: 6
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - (1 >= zero_tolerance) | (Abs(r_13*sin(th_1) + r_33*cos(th_1)) >= zero_tolerance)
+        | (Abs(-r_13*cos(th_1)*cos(th_2) + r_23*sin(th_2) + r_33*sin(th_1)*cos(th_2))
+        >= zero_tolerance)
+      explicit_solutions:
+      - atan2(-r_13*cos(th_1)*cos(th_2) + r_23*sin(th_2) + r_33*sin(th_1)*cos(th_2),
+        r_13*sin(th_1) + r_33*cos(th_1))
+      meta:
+        degenerate_record:
+          equations: []
+          numerical_result: NotAnalyzedYet
+          type: AlwaysNonDegenerate
+          variable_value_map: {}
+        solution_method: Tangent
+        solve_from_equations:
+        - lhs: '0'
+          rhs: -r_13*cos(th_1)*cos(th_2) + r_23*sin(th_2) + r_33*sin(th_1)*cos(th_2)
+            - sin(th_3)
+          type: Default
+        - lhs: '0'
+          rhs: r_13*sin(th_1) + r_33*cos(th_1) - cos(th_3)
+          type: Default
+        solved_variable: th_3
+    type: explicit
+- children_index_list:
+  - 9
+  class_type: NoBranchDispatcherNode
+  flatten_idx_in_tree: 8
+  node_type: DispatcherNode
+  parent_idx: 7
+- children_index_list:
+  - -1
+  class_type: ExplicitSolutionNode
+  flatten_idx_in_tree: 9
+  node_type: SolutionNode
+  parent_idx: 8
+  solution:
+    explicit_solution:
+      argument_checkers:
+      - (1 >= zero_tolerance) | (Abs(r_11*sin(th_2)*cos(th_1) + r_21*cos(th_2) - r_31*sin(th_1)*sin(th_2))
+        >= zero_tolerance) | (Abs(r_12*sin(th_2)*cos(th_1) + r_22*cos(th_2) - r_32*sin(th_1)*sin(th_2))
+        >= zero_tolerance)
+      explicit_solutions:
+      - atan2(r_11*sin(th_2)*cos(th_1) + r_21*cos(th_2) - r_31*sin(th_1)*sin(th_2),
+        r_12*sin(th_2)*cos(th_1) + r_22*cos(th_2) - r_32*sin(th_1)*sin(th_2))
+      meta:
+        degenerate_record:
+          equations: []
+          numerical_result: NotAnalyzedYet
+          type: AlwaysNonDegenerate
+          variable_value_map: {}
+        solution_method: Tangent
+        solve_from_equations:
+        - lhs: '0'
+          rhs: r_11*sin(th_2)*cos(th_1) + r_21*cos(th_2) - r_31*sin(th_1)*sin(th_2)
+            - sin(th_4)
+          type: Default
+        - lhs: '0'
+          rhs: r_12*sin(th_2)*cos(th_1) + r_22*cos(th_2) - r_32*sin(th_1)*sin(th_2)
+            - cos(th_4)
+          type: Default
+        solved_variable: th_4
+    type: explicit
