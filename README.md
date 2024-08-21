@@ -26,7 +26,7 @@ gallery/
         {robot_name}_ik_generated.py
 ```
 
-To use the generated C++ solver, you need to include the [yaik_cpp_common.h](./yaik_cpp_common.h) file, which further depends on Eigen. Please refer to the [yaik_cpp](https://github.com/weigao95/yaik_cpp) repo for an example.
+To use the generated C++ solver, you need to include the [yaik_cpp_common.h](./yaik_cpp_common.h) file, which further depends on Eigen. Please refer to the [yaik_cpp](https://bitbucket.org/gaowei19951004/yaik_cpp/src/master/) repo for an example.
 
 To use the generated Python solver, you need to import [python_run_import.py](./python_run_import.py), which further depends on numpy.
 
