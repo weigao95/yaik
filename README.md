@@ -12,7 +12,7 @@ A python package for generating closed-form inverse kinematic solvers for roboti
 
 ### Using the generated solver
 
-The [gallery](./gallery) contains generated IK solvers for tens for robots. Even if your robot is not included in the library, it might include a robot with the same structure and can be used after parameter modification. The file format is
+The [gallery](./gallery) contains generated IK solvers for tens of robots. Even if your robot is not included in the library, it might include a robot with the same structure and can be used after parameter modification. The file format is
 
 ```
 gallery/
