@@ -1,6 +1,6 @@
 # yaik
 
-A Python package for generating closed-form inverse kinematic solvers for robotics manipulators. The generated solvers support many robots in [Mech-Mind Robotics](https://www.mech-mind.com/) and have been extensively tested in real-world deployment. The name **yaik** stands for **Y**et **A**nother **I**nverse **K**inematics generator.
+A Python package for generating analytical inverse kinematic solvers for robotics manipulators. The generated solvers support many robots in [Mech-Mind Robotics](https://www.mech-mind.com/) and have been extensively tested in real-world deployment. The name **yaik** stands for **Y**et **A**nother **I**nverse **K**inematics generator.
 
 ### Features
 
