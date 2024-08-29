@@ -1,6 +1,6 @@
 # yaik
 
-A python package for generating closed-form inverse kinematic solvers for robotics manipulators. The generated solvers support many robots in [Mech-Mind Robotics](https://www.mech-mind.com/) and have been extensively tested in real-world deployment. The name **yaik** stands for **Y**et **A**nother **I**nverse **K**inematics generator.
+A Python package for generating closed-form inverse kinematic solvers for robotics manipulators. The generated solvers support many robots in [Mech-Mind Robotics](https://www.mech-mind.com/) and have been extensively tested in real-world deployment. The name **yaik** stands for **Y**et **A**nother **I**nverse **K**inematics generator.
 
 ### Features
 
@@ -32,13 +32,13 @@ To use the generated Python solver, you need to import [python_run_import.py](./
 
 ### Generate a solver for your robot
 
-To generate a new solver for a robot that is not in the gallery, you need to install python3 and [sympy](https://github.com/sympy/sympy/wiki/Download-Installation) on your system. Optionally, you might install [sagemath](https://www.sagemath.org/index.html), which contains a faster *groebner reduce* implementation.
+To generate a new solver for a robot that is not in the gallery, you need to install python3 and [sympy](https://github.com/sympy/sympy/wiki/Download-Installation) on your system. Optionally, you might install [sagemath](https://www.sagemath.org/index.html), which contains a faster groebner reduce implementation.
 
 Then, you need to express your robot in **Modified** DH format. A documentation regarding that can be found in [here](./docs/modified_dh.md). Several examples can be found in [this file](./fk/robot_models.py). Alternatively, the modified dh model can be converted from chain model in [this file](./fk/chain_models.py), or URDF using a tool in another library.
 
-After that, you can run `ik_solve.py` to generate the solution of your robot in YAML format. This step can take a LOT of time, as we perform offline analysis to find the simplest solution and avoid degeneration. Moreover, this step might fail to find a feasible solution (although the pipeline succeeded for all the robots we tested).
+After that, you can run `ik_solve.py` to generate the solution for your robot in YAML format. This step can take a LOT of time, as we perform offline analysis to find the simplest solution and avoid degeneration. Moreover, this step might fail to find a feasible solution (although the pipeline succeeded for all the robots we tested).
 
-Finally, you can use `cpp_codegen.py/py_codegen.py` to generate solvers in C++ and python, similiar to ones in the gallery.
+Finally, you can use `cpp_codegen.py/py_codegen.py` to generate solvers in C++ and Python, similar to the ones in the gallery.
 
 ### Acknowledgement
 
