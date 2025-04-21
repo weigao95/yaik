@@ -421,3 +421,71 @@ def atlas_r_hand():
     ])
 
     return robot
+
+
+def rainbow_y1_r_arm():
+    n_dofs = 7
+    robot = RobotDescription("rainbow_y1_r_arm")
+    robot.unknowns = default_unknowns(n_dofs)
+
+    # The dh entry
+    # a_1 = sp.Symbol('a_1')
+    # a_2 = sp.Symbol('a_2')
+    d_2 = sp.Symbol('d_2')
+    a_3 = sp.Symbol('a_3')
+    # a_4 = sp.Symbol('a_4')
+    # d_4 = sp.Symbol('d_4')
+    pre_transform_s0 = sp.Symbol('pre_transform_s0')
+    pre_transform_s1 = sp.Symbol('pre_transform_s1')
+    pre_transform_s2 = sp.Symbol('pre_transform_s2')
+    pre_transform_s3 = sp.Symbol('pre_transform_s3')
+    post_transform_s4 = sp.Symbol('post_transform_s4')
+    dh_0 = DHEntry(0, 0, 0, robot.unknowns[0].symbol)
+    dh_1 = DHEntry(-sp.pi / 2, 0, 0, robot.unknowns[1].symbol)
+    dh_2 = DHEntry(-sp.pi / 2, 0, d_2, robot.unknowns[2].symbol)
+    dh_3 = DHEntry(-sp.pi / 2, a_3, 0, robot.unknowns[3].symbol)
+    dh_4 = DHEntry(-sp.pi / 2, a_3, d_2, robot.unknowns[4].symbol)
+    dh_5 = DHEntry(-sp.pi / 2, 0, 0, robot.unknowns[5].symbol)
+    dh_6 = DHEntry(-sp.pi / 2, 0, 0, robot.unknowns[6].symbol)
+    robot.dh_params = [dh_0, dh_1, dh_2, dh_3, dh_4, dh_5, dh_6]
+    robot.symbolic_parameters = {d_2, a_3}
+    robot.parameters_value = {
+        # a_1: 0.11,
+        # a_2: 0.016,
+        d_2: -0.276,
+        a_3: 0.031,
+        # a_4: 0.00921,
+        # d_4: -0.29955,
+        pre_transform_s0: 0.34202,
+        pre_transform_s1: 0.939693,
+        pre_transform_s2: -0.22,
+        pre_transform_s3: 0.0800735,
+        post_transform_s4: -0.1548}
+    robot.parameters_bound = dict()
+    robot.unknown_as_parameter_more_dof = [robot.unknowns[0].symbol]
+
+    # Add auxiliary data
+    pi_float = float(np.pi)
+    robot.auxiliary_data = RobotAuxiliaryData()
+    robot.auxiliary_data.unknown_offset = [
+        0.0,
+        (-1.22173 / 3.1415926) * pi_float,
+        -0.5 * pi_float,
+        pi_float,
+        pi_float,
+        pi_float,
+        pi_float]
+    robot.auxiliary_data.pre_transform_sp = sp.Matrix([
+        [0, 1, 0, 0],
+        [pre_transform_s0, 0, pre_transform_s1, pre_transform_s2],
+        [pre_transform_s1, 0, -pre_transform_s0, pre_transform_s3],
+        [0, 0, 0, 1]
+    ])
+    robot.auxiliary_data.post_transform_sp = sp.Matrix([
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, post_transform_s4],
+        [0, 0, 0, 1]
+    ])
+
+    return robot

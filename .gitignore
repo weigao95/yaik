@@ -131,6 +131,7 @@ dmypy.json
 # IDE
 .idea/*
 .DS_Store
+.vscode/*
 
 codegen/py_codegen/*generated.py
 codegen/cpp_codegen/*generated.cpp
