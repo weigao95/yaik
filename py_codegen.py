@@ -7,7 +7,7 @@ def run_python_codegen(tree_path: Optional[str] = None):
     import yaml
     from codegen.skeleton.tree_serialize import TreeSerializer
     if tree_path is None:
-        tree_path = './gallery/spherical_wrist_six_axis/spherical_wrist_six_axis_ik.yaml'
+        tree_path = './gallery/rainbow_y1_right_arm/rainbow_y1_r_arm_ik.yaml'
     with open(tree_path, 'r') as read_stream:
         data_map = yaml.load(read_stream, Loader=yaml.CLoader)
     read_stream.close()

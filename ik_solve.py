@@ -155,7 +155,7 @@ def solve_from_yaml(robot_yaml_path: str, test_case_path: Optional[str], run_ik_
 
 
 def run_robot_from_script():
-    robot_to_solve = robot_models.ur10_urdf_robot()
+    robot_to_solve = robot_models.rainbow_y1_r_arm()
     test_case_path = None
     option = RunIKOption()
     option.use_all_intersection_pair_axis_equation = True
@@ -187,6 +187,6 @@ def extend_main_branch_tree():
 
 
 if __name__ == '__main__':
-    # run_robot_from_script()
-    run_robot_ik_from_yaml()
+    run_robot_from_script()
+    # run_robot_ik_from_yaml()
     # extend_main_branch_tree()
