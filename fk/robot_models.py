@@ -462,7 +462,7 @@ def rainbow_y1_r_arm():
         pre_transform_s3: 0.0800735,
         post_transform_s4: -0.1548}
     robot.parameters_bound = dict()
-    robot.unknown_as_parameter_more_dof = [robot.unknowns[0].symbol]
+    robot.unknown_as_parameter_more_dof = [robot.unknowns[4].symbol]
 
     # Add auxiliary data
     pi_float = float(np.pi)
