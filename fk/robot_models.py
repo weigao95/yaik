@@ -543,3 +543,57 @@ def w1_left_arm_industrial():
     ])
 
     return robot
+
+
+def w1_right_arm_industrial():
+    n_dofs = 7
+    robot = RobotDescription("w1_right_arm_industrial")
+    robot.unknowns = default_unknowns(n_dofs)
+
+    # The dh entry
+    d_2 = sp.Symbol('d_2')
+    d_4 = sp.Symbol('d_4')
+    pre_transform_s0 = sp.Symbol('pre_transform_s0')
+    post_transform_s4 = sp.Symbol('post_transform_s4')
+    dh_0 = DHEntry(0, 0, 0, robot.unknowns[0].symbol)
+    dh_1 = DHEntry(-sp.pi / 2, 0, 0, robot.unknowns[1].symbol)
+    dh_2 = DHEntry(-sp.pi / 2, 0, d_2, robot.unknowns[2].symbol)
+    dh_3 = DHEntry(-sp.pi / 2, 0, 0, robot.unknowns[3].symbol)
+    dh_4 = DHEntry(-sp.pi / 2, 0, d_4, robot.unknowns[4].symbol)
+    dh_5 = DHEntry(-sp.pi / 2, 0, 0, robot.unknowns[5].symbol)
+    dh_6 = DHEntry(-sp.pi / 2, 0, 0, robot.unknowns[6].symbol)
+    robot.dh_params = [dh_0, dh_1, dh_2, dh_3, dh_4, dh_5, dh_6]
+    robot.symbolic_parameters = {d_2, d_4}
+    robot.parameters_value = {
+        d_2: 0.26,
+        d_4: 0.264,
+        pre_transform_s0: 0.1025,
+        post_transform_s4: 0.066}
+    robot.parameters_bound = dict()
+    robot.unknown_as_parameter_more_dof = [robot.unknowns[4].symbol]
+
+    # Add auxiliary data
+    pi_float = float(np.pi)
+    robot.auxiliary_data = RobotAuxiliaryData()
+    robot.auxiliary_data.unknown_offset = [
+        0.0,
+        pi_float,
+        -0.5 * pi_float,
+        -pi_float,
+        pi_float,
+        pi_float,
+        0.0]
+    robot.auxiliary_data.pre_transform_sp = sp.Matrix([
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, pre_transform_s0],
+        [0, 0, 0, 1]
+    ])
+    robot.auxiliary_data.post_transform_sp = sp.Matrix([
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, post_transform_s4],
+        [0, 0, 0, 1]
+    ])
+
+    return robot
