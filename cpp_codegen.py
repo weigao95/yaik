@@ -7,7 +7,7 @@ def run_cpp_codegen(tree_yaml_path: Optional[str] = None, use_safe_operator: boo
     import yaml
     from codegen.skeleton.tree_serialize import TreeSerializer
     if tree_yaml_path is None:
-        tree_yaml_path = './gallery/w1/w1_left_arm_industrial_ik.yaml'
+        tree_yaml_path = './gallery/w1/w1_right_arm_anthropomorphic_ik.yaml'
     with open(tree_yaml_path, 'r') as read_stream:
         data_map = yaml.load(read_stream, Loader=yaml.CLoader)
     read_stream.close()

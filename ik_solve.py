@@ -155,7 +155,7 @@ def solve_from_yaml(robot_yaml_path: str, test_case_path: Optional[str], run_ik_
 
 
 def run_robot_from_script():
-    robot_to_solve = robot_models.w1_left_arm_industrial()
+    robot_to_solve = robot_models.w1_right_arm_anthropomorphic()
     test_case_path = None
     option = RunIKOption()
     option.use_all_intersection_pair_axis_equation = True
