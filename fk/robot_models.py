@@ -705,3 +705,58 @@ def w1_right_arm_anthropomorphic():
     ])
 
     return robot
+
+
+def rokae_SR5():
+    n_dofs = 6
+    robot = RobotDescription("rokae_SR5")
+    robot.unknowns = default_unknowns(n_dofs)
+
+    # The dh entry
+    a_2 = sp.Symbol('a_2')
+    a_3 = sp.Symbol('a_3')
+    d_3 = sp.Symbol('d_3')
+    d_4 = sp.Symbol('d_4')
+    d_5 = sp.Symbol('d_5')
+    pre_transform_s0 = sp.Symbol('pre_transform_s0')
+    dh_0 = DHEntry(0,          0, 0, robot.unknowns[0].symbol)
+    dh_1 = DHEntry(-sp.pi / 2, 0, 0, robot.unknowns[1].symbol)
+    dh_2 = DHEntry(-sp.pi,     a_2, 0, robot.unknowns[2].symbol)
+    dh_3 = DHEntry( sp.pi / 2, a_3, d_3, robot.unknowns[3].symbol)
+    dh_4 = DHEntry(-sp.pi / 2, 0, d_4, robot.unknowns[4].symbol)
+    dh_5 = DHEntry(-sp.pi / 2, 0, d_5, robot.unknowns[5].symbol)
+    robot.dh_params = [dh_0, dh_1, dh_2, dh_3, dh_4, dh_5]
+    robot.symbolic_parameters = {a_2, a_3, d_3, d_4, d_5}
+    robot.parameters_value = {
+        a_2: 0.403113,
+        a_3: 0.05,
+        d_3: 0.4,
+        d_4: -0.136,
+        d_5: 0.1035,
+        pre_transform_s0: 0.328}
+    robot.parameters_bound = dict()
+
+    # Add auxiliary data
+    pi_float = float(np.pi)
+    robot.auxiliary_data = RobotAuxiliaryData()
+    robot.auxiliary_data.unknown_offset = [
+        0.0,
+        -1.44644,
+        1.69515,
+        0.0,
+        pi_float,
+        0.0]
+    robot.auxiliary_data.pre_transform_sp = sp.Matrix([
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, pre_transform_s0],
+        [0, 0, 0, 1]
+    ])
+    robot.auxiliary_data.post_transform_sp = sp.Matrix([
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 1]
+    ])
+
+    return robot
